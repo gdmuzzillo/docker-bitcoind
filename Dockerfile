@@ -1,5 +1,6 @@
+
 FROM ubuntu:xenial
-MAINTAINER Kyle Manna <kyle@kylemanna.com>
+MAINTAINER Gustavo Muzzillo
 
 ARG USER_ID
 ARG GROUP_ID
@@ -51,4 +52,4 @@ WORKDIR /bitcoin
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD ["btc_oneshot"]
+CMD CMD ["bitcoind -printtoconsole -rpcallowip=172.17.0.0/16 -rpcauth=poem:82191e2b701a208ba5e26e2ddc35aaa4$ab24962c1b9b0b73ffb08b4d525c2196d49a0e5c8f6225a35d1d4fe67c2243ba -prune=550"]
